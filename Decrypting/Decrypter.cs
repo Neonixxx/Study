@@ -50,10 +50,10 @@ namespace Decrypting
         /// </summary>
         private readonly int[] MoveArray = new int[] 
         {
-            12, 5, 2, 6,
-            11, 1, 14, 15,
-            3, 8, 0, 7,
-            4, 9, 10, 13
+            11, 5, 2, 6,
+            12, 1, 15, 14,
+            8, 3, 0, 7,
+            9, 4, 13, 10
         };
 
         /// <summary>
@@ -62,41 +62,59 @@ namespace Decrypting
         public readonly Dictionary<string, string> Symbols = new Dictionary<string, string>
         {
             { "BM", "" },
-            { "MB", "" },
 
-
-
+            { "DH", "д" },
             { "HD", "м" },
-            { "DH", "м" },
-            { "KI", "о" },
-            { "IK", "о" },
-            { "MM", "е" },
-            { "GF", "т" },
-            { "FG", "т" },
-            { "AJ", "н" },
+            { "AJ", "0" },
             { "JA", "н" },
-            { "ON", "д" },
+            { "IK", "о" },
+            { "ON", "к" },
             { "NO", "д" },
-            { "NA", "а" },
+
+            { "GF", "т" },
+            { "EM", "е" },
             { "AN", "а" },
             { "CC", "ф" },
-            { "OF", "9" },
             { "FO", "9" },
-            { "CD", "1" },
             { "DC", "1" },
 
+            { "FN", "З" },
+            { "NF", "ь" },
+            { "HH", "п" },
+            { "AA", " " },
+            { "HC", "р" },
 
+            { "IO", "и" },
+            { "HF", "Н" },
+            { "PD", "л" },
+            { "MF", "ы" },
+            { "FH", "в" },
+            { "KK", "б" },
+            { "JE", "," },
 
-            { "AH", " " },
-            { "HA", " " },
+            { "GN", "." },
+            { "NB", "ж" },
+            { "CM", "с" },
+            { "CK", "ч" },
+            { "BE", "я" },
+            { "IF", "ё" },
+            { "OO", "у" },
+            { "CP", "ц" },
+            { "HI", "э" },
+            { "DD", "г" },
 
-            { "CA", "р" },
-            { "AC", "р" },
+            { "EI", "й" },
+            { "OE", "ш" },
+            { "AF", "з" },
+            { "ED", "щ" },
+            { "GA", "3" },
+            { "PH", "5" },
+            { "DI", "%" },
+            { "GH", "7" },
+            { "DL", "-" },
+            { "OP", "2" },
 
-            { "HF", "п" },
-            { "FH", "п" },
-            { "NH", "п" },
-            { "HN", "п" },
+            { "AL", "*" },
         };
 
         private int Sum = 0;
@@ -123,7 +141,7 @@ namespace Decrypting
         {
             var afterMove = new char[BlockLength];
             for (int i = 0; i < BlockLength; i++)
-                afterMove[MoveArray[i]] = text[i];
+                afterMove[i] = text[MoveArray[i]];
             var stringAfterMove = new string(afterMove);
 
             var result = new StringBuilder(BlockLength / 2);
